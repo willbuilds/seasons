@@ -1,0 +1,29 @@
+%h1 Listing product_locations
+
+%table
+  %tr
+    %th Product
+    %th Location
+    %th Available from
+    %th Available to
+    %th Best from
+    %th Best to
+    %th
+    %th
+    %th
+
+  - @product_locations.each do |product_location|
+    %tr
+      %td= product_location.product
+      %td= product_location.location
+      %td= product_location.available_from
+      %td= product_location.available_to
+      %td= product_location.best_from
+      %td= product_location.best_to
+      %td= link_to 'Show', product_location
+      %td= link_to 'Edit', edit_product_location_path(product_location)
+      %td= link_to 'Destroy', product_location, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Product location', new_product_location_path

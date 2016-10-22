@@ -1,0 +1,28 @@
+= form_for @product_location do |f|
+  - if @product_location.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@product_location.errors.count, "error")} prohibited this product_location from being saved:"
+      %ul
+        - @product_location.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :product
+    = f.text_field :product
+  .field
+    = f.label :location
+    = f.text_field :location
+  .field
+    = f.label :available_from
+    = f.datetime_select :available_from
+  .field
+    = f.label :available_to
+    = f.datetime_select :available_to
+  .field
+    = f.label :best_from
+    = f.datetime_select :best_from
+  .field
+    = f.label :best_to
+    = f.datetime_select :best_to
+  .actions
+    = f.submit 'Save'
